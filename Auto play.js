@@ -24,7 +24,7 @@ data.sort(function(a, b) {
     return a.localeCompare(b)
 })                                                       //a,b以特定规则排序
 for (i = 0; i < data.length; i++) {
-   if (data[i].search(".txt") != -1 | data[i].search(".js") != -1&& data[i].search(".bak") = -1) {             //判断data数组中是否存在含有字符串".txt"".js"并排除含有"bak"的元素
+   if (data[i].search(".txt") != -1 | data[i].search(".js") != -1&& data[i].search(".bak") == -1) {             //判断data数组中是否存在含有字符串".txt"".js"并排除含有"bak"的元素
         showNames.push(data[i]);                              //在showname这个数组后面加上data这个数组里符合上述条件的元素
     }
 }
