@@ -1,18 +1,17 @@
 /*
 版本：1.0
-作者：Yojae|沐风
+原作者：Yojae|沐风
+二次修改：懒声
 支持：由剪切板或从乐谱文件夹(手机根目录/Download/SkyMsToJs/ms/)导入的
      由《光遇乐谱转js》生成的【乐谱/以txt形式将乐谱保存成的文件】、
      由《Sky Studio》生成的【json类型代码/文件】、
      由《光遇乐谱转js》生成的【js代码/文件】。
-反馈交流：1、通过《光遇乐谱转js》交流社区反馈，软件下载地址：https://yojae.lanzoui.com/b07flo1ih
-        2、访问网页：https://support.qq.com/embed/phone/151643/post-list/
 */
 var 是否显示悬浮窗 = "是" //显示则为"是"，不想显示请改为要等待的毫秒数，如"3000"
 var sheetPath = "/sdcard/脚本/" //默认乐谱存放路径
-var zuobiaoPath = "/sdcard/脚本/zuobiao.txt";
+var zuobiaoPath = "/sdcard/脚本/zuobiao.txt";   //坐标存放路径
 if (files.exists(zuobiaoPath)) {
-    eval(files.read(zuobiaoPath));        //eval增加全局作用域//
+    eval(files.read(zuobiaoPath));        //eval执行//
 } else {
     setScreenMetrics(1080, 2340);
     var x = [780, 975, 1170, 1365, 1560];
@@ -25,7 +24,7 @@ data.sort(function(a, b) {
     return a.localeCompare(b)
 })                                                       //a,b以特定规则排序
 for (i = 0; i < data.length; i++) {
-   if (data[i].search(".txt") != -1 | data[i].search(".js") != -1&& data[i].search(".bak") = -1) {             //判断data数组中是否存在含有字符串“.txt”“.js”的元素
+   if (data[i].search(".txt") != -1 | data[i].search(".js") != -1&& data[i].search(".bak") = -1) {             //判断data数组中是否存在含有字符串".txt"".js"并排除含有"bak"的元素
         showNames.push(data[i]);                              //在showname这个数组后面加上data这个数组里符合上述条件的元素
     }
 }
